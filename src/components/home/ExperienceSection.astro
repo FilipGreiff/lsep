@@ -1,0 +1,33 @@
+---
+interface Stat {
+  value: string;
+  label: string;
+}
+
+const stats: Stat[] = [
+  { value: '30+', label: 'Års Erfarenhet' },
+  { value: '1000+', label: 'Genomförda Projekt' },
+  { value: '35', label: 'Anställda' },
+  { value: '100%', label: 'Nöjda Kunder' }
+];
+---
+
+<section class="py-20 bg-gradient-to-br from-chrome-blue to-swedish-steel text-white">
+  <div class="container mx-auto px-4">
+    <div class="text-center mb-16">
+      <h2 class="text-4xl font-bold mb-4">Erfarenhet Som Gör Skillnad</h2>
+      <p class="text-xl opacity-90">Sedan 1990 har vi levererat kvalitet i varje projekt</p>
+    </div>
+    
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-8">
+      {stats.map(stat => (
+        <div class="text-center">
+          <div class="text-4xl md:text-5xl font-bold text-machine-yellow mb-2">
+            {stat.value}
+          </div>
+          <div class="text-lg opacity-90">{stat.label}</div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

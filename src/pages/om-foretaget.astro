@@ -1,0 +1,59 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Hero from '../components/Hero.astro';
+
+const milestones = [
+  { year: 1990, text: 'Företaget grundas av Lars Gustavsson' },
+  { year: 2004, text: 'Ombildning till aktiebolag' },
+  { year: 2010, text: 'Förvärv av Gisslens entreprenad AB' },
+  { year: 2023, text: 'Över 30 anställda och modern maskinpark' }
+];
+---
+
+<Layout 
+  title="Om Lasses Entreprenad AB | Vår Historia och Värderingar"
+  description="Lär känna historien bakom Lasses Entreprenad AB - från starten 1990 till dagens ledande entreprenadföretag."
+>
+  <Hero 
+    title="Om Företaget"
+    description="En historia av kvalitet och kompetens sedan 1990"
+    image="/bild2.jpg"
+  />
+  
+  <section class="py-20">
+    <div class="container mx-auto px-4">
+      <div class="max-w-3xl mx-auto">
+        <h2 class="text-3xl font-bold mb-8">Vår Historia</h2>
+        <div class="space-y-8">
+          {milestones.map(({ year, text }) => (
+            <div class="flex items-start">
+              <div class="bg-chrome-blue text-white font-bold py-2 px-4 rounded">
+                {year}
+              </div>
+              <p class="ml-6 text-lg">{text}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="bg-gray-100 py-20">
+    <div class="container mx-auto px-4">
+      <div class="max-w-3xl mx-auto">
+        <h2 class="text-3xl font-bold mb-8">Våra Värderingar</h2>
+        <div class="prose prose-lg">
+          <p>
+            Lasses Entreprenad startades som enskild firma av Lars Gustavsson 1990. 
+            I juli 2004 bytte företaget bolagsform och blev aktiebolaget Lasses Entreprenad i Frillesås AB. 
+            Företaget har mellan 25-35 anställda beroende på säsong.
+          </p>
+          <p>
+            Vi eftersträvar alltid högsta kvalitet på utförda arbeten och tar största miljöhänsyn i våra projekt. 
+            Vår långa erfarenhet och gedigna kunskap gör oss till en pålitlig partner för alla typer av markarbeten.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+</Layout>

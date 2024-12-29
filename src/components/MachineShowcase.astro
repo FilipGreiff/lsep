@@ -1,0 +1,54 @@
+---
+const machines = [
+  {
+    name: 'CAT 336',
+    type: 'Bandgrävare',
+    weight: '36 ton',
+    image: '/machine-1.jpg'
+  },
+  {
+    name: 'Volvo EC300',
+    type: 'Hjulgrävare',
+    weight: '30 ton',
+    image: '/machine-2.jpg'
+  },
+  {
+    name: 'Volvo A30',
+    type: 'Dumper',
+    weight: '28 ton',
+    image: '/machine-3.jpg'
+  }
+];
+---
+
+<section class="relative py-20 bg-steel-gray">
+  <div class="absolute inset-0 bg-texture opacity-10"></div>
+  
+  <div class="relative container mx-auto px-4">
+    <div class="flex flex-col md:flex-row items-center justify-between mb-16">
+      <h2 class="font-display text-4xl md:text-5xl font-bold text-white mb-4 md:mb-0">
+        KRAFTFULL MASKINPARK
+      </h2>
+      <a href="/maskinpark" class="bg-machine-yellow text-industrial-black px-8 py-4 font-bold hover:bg-machine-yellow/90 transition-colors">
+        SE ALLA MASKINER
+      </a>
+    </div>
+    
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+      {machines.map(machine => (
+        <div class="bg-industrial-black p-6 group hover:bg-machine-yellow/10 transition-colors">
+          <img 
+            src={machine.image} 
+            alt={machine.name}
+            class="w-full h-64 object-cover mb-6"
+          />
+          <h3 class="font-display text-2xl font-bold text-machine-yellow mb-2">
+            {machine.name}
+          </h3>
+          <p class="text-white mb-1">{machine.type}</p>
+          <p class="text-metal-silver">{machine.weight}</p>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

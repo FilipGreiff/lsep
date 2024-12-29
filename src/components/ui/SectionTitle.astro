@@ -1,0 +1,30 @@
+---
+interface Props {
+  title: string;
+  color?: 'light' | 'dark';
+  align?: 'left' | 'center';
+}
+
+const { 
+  title, 
+  color = 'dark',
+  align = 'left' 
+} = Astro.props;
+
+const textColors = {
+  light: 'text-white',
+  dark: 'text-industrial-black'
+};
+
+const alignments = {
+  left: 'text-left',
+  center: 'text-center'
+};
+---
+
+<div class={`mb-12 ${alignments[align]}`}>
+  <h2 class={`font-display text-4xl md:text-5xl font-bold ${textColors[color]}`}>
+    {title}
+  </h2>
+  <div class="w-24 h-1 bg-chrome-blue mt-4 mx-auto"></div>
+</div>

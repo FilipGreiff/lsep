@@ -1,0 +1,108 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Hero from '../components/Hero.astro';
+
+const categories = [
+  {
+    title: 'GRÄVMASKINER',
+    machines: [
+      {
+        name: 'CAT 336',
+        specs: ['36 ton', 'Räckvidd: 11m', 'GPS-styrd'],
+        image: '/bild1.jpg'
+      },
+      {
+        name: 'Volvo EC300',
+        specs: ['30 ton', 'Räckvidd: 10m', 'Tiltrotator'],
+        image: '/bild2.jpg'
+      }
+    ]
+  },
+  {
+    title: 'LASTMASKINER',
+    machines: [
+      {
+        name: 'Volvo L90H',
+        specs: ['Lastkapacitet: 3.5 ton', 'GPS-styrd'],
+        image: '/bild3.jpg'
+      }
+    ]
+  },
+  {
+    title: 'DUMPRAR',
+    machines: [
+      {
+        name: 'Volvo A30G',
+        specs: ['Lastkapacitet: 28 ton', '6x6 drift'],
+        image: '/bild4.jpg'
+      }
+    ]
+  }
+];
+---
+
+<Layout 
+  title="Maskinpark | Lasses Entreprenad"
+  description="Vår moderna maskinpark för effektiva markarbeten"
+>
+  <Hero 
+    title="KRAFTFULL MASKINPARK"
+    description="Modern utrustning för alla typer av markarbeten"
+    image="/bild3.jpg"
+  />
+
+  <section class="py-20 bg-industrial-black">
+    <div class="container mx-auto px-4">
+      {categories.map(category => (
+        <div class="mb-20 last:mb-0">
+          <h2 class="font-display text-4xl font-bold text-white mb-12 flex items-center">
+            <span class="w-12 h-1 bg-machine-yellow mr-4"></span>
+            {category.title}
+          </h2>
+          
+          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {category.machines.map(machine => (
+              <div class="bg-steel-gray p-6 rounded-lg group hover:bg-machine-yellow/10 transition-colors">
+                <div class="relative mb-6 overflow-hidden rounded-lg">
+                  <img 
+                    src={machine.image} 
+                    alt={machine.name}
+                    class="w-full h-64 object-cover transform group-hover:scale-110 transition-transform duration-500"
+                  />
+                </div>
+                <h3 class="font-display text-2xl font-bold text-machine-yellow mb-4">
+                  {machine.name}
+                </h3>
+                <ul class="space-y-2">
+                  {machine.specs.map(spec => (
+                    <li class="text-metal-silver flex items-center">
+                      <span class="material-icons text-machine-yellow mr-2 text-sm">
+                        chevron_right
+                      </span>
+                      {spec}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            ))}
+          </div>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <section class="py-20 bg-steel-gray text-white">
+    <div class="container mx-auto px-4 text-center">
+      <h2 class="font-display text-4xl font-bold mb-8">BEHÖVER DU HYRA MASKINER?</h2>
+      <p class="text-xl mb-8 text-metal-silver max-w-2xl mx-auto">
+        Vi erbjuder maskinuthyrning med erfarna förare. Kontakta oss för mer information och priser.
+      </p>
+      <a 
+        href="/kontakt" 
+        class="inline-block bg-machine-yellow text-industrial-black px-12 py-4 font-bold hover:bg-machine-yellow/90 transition-colors"
+      >
+        BEGÄR OFFERT
+      </a>
+    </div>
+  </section>
+</Layout>

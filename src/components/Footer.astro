@@ -1,0 +1,62 @@
+---
+const currentYear = new Date().getFullYear();
+
+const sections = [
+  {
+    title: 'KONTAKT',
+    content: [
+      'Brearedsvägen 370',
+      '439 64 Frillesås',
+      'Tel: 0708-66 21 80',
+      'info@lassesentreprenad.se'
+    ]
+  },
+  {
+    title: 'TJÄNSTER',
+    content: [
+      'Markarbete',
+      'Schaktning',
+      'VA-arbeten',
+      'Vägbyggnation'
+    ]
+  },
+  {
+    title: 'CERTIFIERINGAR',
+    content: [
+      'ISO 9001:2015',
+      'ISO 14001:2015',
+      'Medlem i Maskinentreprenörerna'
+    ]
+  }
+];
+---
+
+<footer class="bg-industrial-black text-white pt-20 pb-6">
+  <div class="container mx-auto px-4">
+    <!-- Logo and Company Info -->
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-12 mb-16">
+      {sections.map(section => (
+        <div>
+          <h3 class="font-display text-xl font-bold mb-6 text-machine-yellow">
+            {section.title}
+          </h3>
+          <ul class="space-y-3">
+            {section.content.map(item => (
+              <li class="text-metal-silver hover:text-white transition-colors">
+                {item}
+              </li>
+            ))}
+          </ul>
+        </div>
+      ))}
+    </div>
+
+    <!-- Divider -->
+    <div class="h-px bg-steel-gray/30 mb-6"></div>
+
+    <!-- Copyright -->
+    <div class="text-center text-metal-silver text-sm">
+      <p>&copy; {currentYear} Lasses Entreprenad i Frillesås AB | Alla Rättigheter reserverade</p>
+    </div>
+  </div>
+</footer>

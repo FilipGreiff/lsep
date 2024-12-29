@@ -1,0 +1,53 @@
+---
+interface Props {
+  title: string;
+  description: string;
+  image?: string;
+}
+
+const { title, description, image = "/hero-excavator.jpg" } = Astro.props;
+---
+
+<section class="relative h-screen min-h-[600px] flex items-center justify-center overflow-hidden">
+  <!-- Video Background -->
+  <video 
+    class="absolute inset-0 w-full h-full object-cover"
+    autoplay 
+    loop 
+    muted 
+    playsinline
+  >
+    <source src="/hero-video.mp4" type="video/mp4">
+  </video>
+  
+  <!-- Overlay -->
+  <div class="absolute inset-0 bg-gradient-to-b from-industrial-black/80 to-industrial-black/40"></div>
+  
+  <!-- Content -->
+  <div class="relative z-10 container mx-auto px-4 text-white">
+    <div class="max-w-4xl">
+      <div class="inline-block bg-machine-yellow px-4 py-2 mb-6">
+        <span class="font-display text-industrial-black font-bold tracking-wider">MARKARBETE & ENTREPRENAD</span>
+      </div>
+      <h1 class="font-display text-5xl md:text-7xl font-bold mb-6 leading-tight">
+        {title}
+      </h1>
+      <p class="text-xl md:text-2xl mb-8 text-metal-silver">
+        {description}
+      </p>
+      <div class="flex gap-4">
+        <a href="/kontakt" class="bg-machine-yellow text-industrial-black px-8 py-4 font-bold hover:bg-machine-yellow/90 transition-colors">
+          BEGÄR OFFERT
+        </a>
+        <a href="/maskinpark" class="border-2 border-white px-8 py-4 font-bold hover:bg-white/10 transition-colors">
+          VÅR MASKINPARK
+        </a>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Scroll Indicator -->
+  <div class="absolute bottom-8 left-1/2 -translate-x-1/2 animate-bounce">
+    <span class="material-icons text-white text-4xl">keyboard_arrow_down</span>
+  </div>
+</section>

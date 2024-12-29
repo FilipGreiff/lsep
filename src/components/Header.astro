@@ -1,0 +1,41 @@
+---
+const navItems = [
+  { href: '/', text: 'Hem' },
+  { href: '/om-foretaget', text: 'Om Företaget' },
+  { href: '/maskinpark', text: 'Maskinpark' },
+  { href: '/galleri', text: 'Galleri' },
+  { href: '/kontakt', text: 'Kontakt' }
+];
+---
+
+<header class="bg-white shadow-md">
+  <nav class="container mx-auto px-4 py-6">
+    <div class="flex items-center justify-between">
+      <a href="/" class="text-2xl font-bold text-chrome-blue">
+        Lasses Entreprenad
+      </a>
+      
+      <ul class="hidden md:flex space-x-8">
+        {navItems.map(item => (
+          <li>
+            <a 
+              href={item.href}
+              class="text-site-black hover:text-chrome-blue transition-colors"
+            >
+              {item.text}
+            </a>
+          </li>
+        ))}
+      </ul>
+      
+      <button 
+        class="md:hidden p-2"
+        aria-label="Meny"
+      >
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+        </svg>
+      </button>
+    </div>
+  </nav>
+</header>

@@ -1,0 +1,41 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Hero from '../components/Hero.astro';
+
+const images = Array.from({ length: 11 }, (_, i) => ({
+  id: i + 1,
+  src: `/bild${i + 1}.jpg`,
+  thumb: `/bild${i + 1}_tmb.jpg`,
+  alt: `Projektbild ${i + 1}`
+}));
+---
+
+<Layout 
+  title="Bildgalleri | Lasses Entreprenad AB"
+  description="Se bilder från våra olika projekt och arbeten inom markentreprenad."
+>
+  <Hero 
+    title="Bildgalleri"
+    description="Utvalda projekt och arbeten"
+    image="/bild4.jpg"
+  />
+  
+  <section class="py-20">
+    <div class="container mx-auto px-4">
+      <div class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-6">
+        {images.map(image => (
+          <a 
+            href={image.src}
+            class="block aspect-square overflow-hidden rounded-lg shadow-lg hover:shadow-xl transition-shadow"
+          >
+            <img 
+              src={image.thumb}
+              alt={image.alt}
+              class="w-full h-full object-cover hover:scale-105 transition-transform"
+            />
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+</Layout>

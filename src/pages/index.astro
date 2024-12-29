@@ -1,0 +1,53 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Hero from '../components/Hero.astro';
+import ServiceSection from '../components/ServiceSection.astro';
+import MachineShowcase from '../components/MachineShowcase.astro';
+
+const stats = [
+  { value: '30+', label: 'ÅRS ERFARENHET' },
+  { value: '35', label: 'ANSTÄLLDA' },
+  { value: '25+', label: 'TUNGA MASKINER' },
+  { value: '1000+', label: 'PROJEKT' }
+];
+---
+
+<Layout title="Lasses Entreprenad - Kraftfull Markentreprenad">
+  <Hero 
+    title="KRAFT ATT FÖRÄNDRA LANDSKAPET"
+    description="Med över 30 års erfarenhet och en modern maskinpark utför vi markarbeten som formar framtidens infrastruktur."
+  />
+  
+  <section class="bg-industrial-black py-16">
+    <div class="container mx-auto px-4">
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-8">
+        {stats.map(stat => (
+          <div class="text-center">
+            <div class="font-display text-5xl md:text-6xl font-bold text-machine-yellow mb-2">
+              {stat.value}
+            </div>
+            <div class="text-white text-sm tracking-wider">{stat.label}</div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <ServiceSection />
+  <MachineShowcase />
+
+  <section class="relative py-20 bg-diagonal from-industrial-black to-steel-gray text-white">
+    <div class="container mx-auto px-4 text-center">
+      <h2 class="font-display text-4xl md:text-5xl font-bold mb-8">REDO ATT STARTA DITT PROJEKT?</h2>
+      <p class="text-xl mb-8 text-metal-silver max-w-2xl mx-auto">
+        Vi har kraften, kunskapen och maskinerna för att genomföra ditt projekt. Kontakta oss för en kostnadsfri konsultation.
+      </p>
+      <a 
+        href="/kontakt" 
+        class="inline-block bg-machine-yellow text-industrial-black px-12 py-4 font-bold hover:bg-machine-yellow/90 transition-colors"
+      >
+        KONTAKTA OSS
+      </a>
+    </div>
+  </section>
+</Layout>
