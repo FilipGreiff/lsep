@@ -1,0 +1,52 @@
+---
+<div class="bg-chrome-blue text-white p-8 rounded-lg shadow-xl">
+  <h2 class="text-3xl font-bold mb-8">Kontakta Oss</h2>
+  <form class="space-y-6">
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+      <div>
+        <label class="block text-sm font-medium mb-2">Namn</label>
+        <input 
+          type="text" 
+          class="w-full bg-white/10 border-2 border-white/20 rounded-lg p-3 text-white 
+                 focus:border-machine-yellow focus:ring-0 placeholder-white/50"
+          required
+        />
+      </div>
+      <div>
+        <label class="block text-sm font-medium mb-2">Telefon</label>
+        <input 
+          type="tel" 
+          class="w-full bg-white/10 border-2 border-white/20 rounded-lg p-3 text-white 
+                 focus:border-machine-yellow focus:ring-0 placeholder-white/50"
+          required
+        />
+      </div>
+    </div>
+    <div>
+      <label class="block text-sm font-medium mb-2">E-post</label>
+      <input 
+        type="email" 
+        class="w-full bg-white/10 border-2 border-white/20 rounded-lg p-3 text-white 
+               focus:border-machine-yellow focus:ring-0 placeholder-white/50"
+        required
+      />
+    </div>
+    <div>
+      <label class="block text-sm font-medium mb-2">Meddelande</label>
+      <textarea 
+        rows="4"
+        class="w-full bg-white/10 border-2 border-white/20 rounded-lg p-3 text-white 
+               focus:border-machine-yellow focus:ring-0 placeholder-white/50"
+        required
+      ></textarea>
+    </div>
+    <button
+      type="submit"
+      class="w-full bg-machine-yellow text-industrial-black font-bold py-4 px-8 rounded-lg 
+             hover:bg-white transition-colors duration-300"
+    >
+      Skicka Meddelande
+    </button>
+  </form>
+</div>
+---

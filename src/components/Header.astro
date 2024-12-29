@@ -6,12 +6,18 @@ const navItems = [
   { href: '/galleri', text: 'Galleri' },
   { href: '/kontakt', text: 'Kontakt' }
 ];
+
+interface Props {
+  transparent?: boolean;
+}
+
+const { transparent = false } = Astro.props;
 ---
 
-<header class="bg-white shadow-md">
+<header class={`fixed w-full z-50 transition-colors duration-300 ${transparent ? 'bg-transparent' : 'bg-industrial-black shadow-lg'}`}>
   <nav class="container mx-auto px-4 py-6">
     <div class="flex items-center justify-between">
-      <a href="/" class="text-2xl font-bold text-chrome-blue">
+      <a href="/" class="text-2xl font-bold text-white hover:text-machine-yellow transition-colors">
         Lasses Entreprenad
       </a>
       
@@ -20,7 +26,7 @@ const navItems = [
           <li>
             <a 
               href={item.href}
-              class="text-site-black hover:text-chrome-blue transition-colors"
+              class="text-white hover:text-machine-yellow transition-colors"
             >
               {item.text}
             </a>
@@ -29,7 +35,7 @@ const navItems = [
       </ul>
       
       <button 
-        class="md:hidden p-2"
+        class="md:hidden p-2 text-white"
         aria-label="Meny"
       >
         <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -39,3 +45,19 @@ const navItems = [
     </div>
   </nav>
 </header>
+
+<script>
+  const header = document.querySelector('header');
+  const handleScroll = () => {
+    if (window.scrollY > 50) {
+      header?.classList.remove('bg-transparent');
+      header?.classList.add('bg-industrial-black', 'shadow-lg');
+    } else if (window.location.pathname === '/') {
+      header?.classList.add('bg-transparent');
+      header?.classList.remove('bg-industrial-black', 'shadow-lg');
+    }
+  };
+
+  window.addEventListener('scroll', handleScroll);
+  handleScroll();
+</script>

@@ -8,6 +8,24 @@ const milestones = [
   { year: 2010, text: 'Förvärv av Gisslens entreprenad AB' },
   { year: 2023, text: 'Över 30 anställda och modern maskinpark' }
 ];
+
+const values = [
+  {
+    icon: 'engineering',
+    title: 'Expertis',
+    description: 'Över 30 års erfarenhet av markentreprenad och infrastrukturprojekt.'
+  },
+  {
+    icon: 'verified',
+    title: 'Kvalitet',
+    description: 'ISO-certifierade processer och högsta standard på alla arbeten.'
+  },
+  {
+    icon: 'eco',
+    title: 'Miljöansvar',
+    description: 'Hållbara lösningar och minimal miljöpåverkan i alla projekt.'
+  }
+];
 ---
 
 <Layout 
@@ -22,37 +40,40 @@ const milestones = [
   
   <section class="py-20">
     <div class="container mx-auto px-4">
-      <div class="max-w-3xl mx-auto">
-        <h2 class="text-3xl font-bold mb-8">Vår Historia</h2>
-        <div class="space-y-8">
-          {milestones.map(({ year, text }) => (
-            <div class="flex items-start">
-              <div class="bg-chrome-blue text-white font-bold py-2 px-4 rounded">
-                {year}
+      <div class="max-w-4xl mx-auto">
+        <h2 class="text-4xl font-bold mb-12 text-center">Vår Historia</h2>
+        <div class="relative">
+          <div class="absolute left-1/2 -ml-0.5 w-0.5 h-full bg-chrome-blue"></div>
+          <div class="space-y-16">
+            {milestones.map(({ year, text }, index) => (
+              <div class={`flex items-center ${index % 2 === 0 ? 'flex-row-reverse' : ''}`}>
+                <div class="w-1/2 px-8">
+                  <div class={`bg-white p-6 rounded-lg shadow-lg ${index % 2 === 0 ? 'text-right' : ''}`}>
+                    <div class="text-chrome-blue font-bold text-2xl mb-2">{year}</div>
+                    <p class="text-lg">{text}</p>
+                  </div>
+                </div>
+                <div class="absolute left-1/2 -ml-3 w-6 h-6 bg-machine-yellow rounded-full border-4 border-white"></div>
+                <div class="w-1/2"></div>
               </div>
-              <p class="ml-6 text-lg">{text}</p>
-            </div>
-          ))}
+            ))}
+          </div>
         </div>
       </div>
     </div>
   </section>
 
-  <section class="bg-gray-100 py-20">
+  <section class="bg-industrial-black text-white py-20">
     <div class="container mx-auto px-4">
-      <div class="max-w-3xl mx-auto">
-        <h2 class="text-3xl font-bold mb-8">Våra Värderingar</h2>
-        <div class="prose prose-lg">
-          <p>
-            Lasses Entreprenad startades som enskild firma av Lars Gustavsson 1990. 
-            I juli 2004 bytte företaget bolagsform och blev aktiebolaget Lasses Entreprenad i Frillesås AB. 
-            Företaget har mellan 25-35 anställda beroende på säsong.
-          </p>
-          <p>
-            Vi eftersträvar alltid högsta kvalitet på utförda arbeten och tar största miljöhänsyn i våra projekt. 
-            Vår långa erfarenhet och gedigna kunskap gör oss till en pålitlig partner för alla typer av markarbeten.
-          </p>
-        </div>
+      <h2 class="text-4xl font-bold mb-12 text-center">Våra Värderingar</h2>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+        {values.map(value => (
+          <div class="bg-steel-gray p-8 rounded-lg text-center group hover:bg-machine-yellow/10 transition-colors">
+            <span class="material-icons text-5xl text-machine-yellow mb-4">{value.icon}</span>
+            <h3 class="text-2xl font-bold mb-4">{value.title}</h3>
+            <p class="text-metal-silver">{value.description}</p>
+          </div>
+        ))}
       </div>
     </div>
   </section>

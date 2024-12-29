@@ -1,6 +1,7 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import Hero from '../components/Hero.astro';
+import ImageGrid from '../components/gallery/ImageGrid.astro';
 
 const images = Array.from({ length: 11 }, (_, i) => ({
   id: i + 1,
@@ -15,27 +16,36 @@ const images = Array.from({ length: 11 }, (_, i) => ({
   description="Se bilder från våra olika projekt och arbeten inom markentreprenad."
 >
   <Hero 
-    title="Bildgalleri"
-    description="Utvalda projekt och arbeten"
+    title="Våra Projekt"
+    description="En visuell resa genom våra arbeten"
     image="/bild4.jpg"
   />
   
-  <section class="py-20">
-    <div class="container mx-auto px-4">
-      <div class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-6">
-        {images.map(image => (
-          <a 
-            href={image.src}
-            class="block aspect-square overflow-hidden rounded-lg shadow-lg hover:shadow-xl transition-shadow"
-          >
-            <img 
-              src={image.thumb}
-              alt={image.alt}
-              class="w-full h-full object-cover hover:scale-105 transition-transform"
-            />
-          </a>
-        ))}
+  <div class="relative">
+    <div class="absolute inset-0 bg-gradient-to-b from-industrial-black/90 to-transparent h-32"></div>
+    <section class="relative py-20">
+      <div class="container mx-auto px-4">
+        <div class="max-w-7xl mx-auto">
+          <ImageGrid images={images} />
+        </div>
       </div>
+    </section>
+  </div>
+
+  <section class="bg-chrome-blue text-white py-20">
+    <div class="container mx-auto px-4 text-center">
+      <h2 class="text-3xl font-bold mb-6">Har du ett projekt i åtanke?</h2>
+      <p class="text-xl mb-8 text-white/90 max-w-2xl mx-auto">
+        Vi hjälper dig att förverkliga dina visioner. Kontakta oss för en kostnadsfri konsultation.
+      </p>
+      <a 
+        href="/kontakt" 
+        class="inline-block bg-machine-yellow text-industrial-black px-12 py-4 font-bold 
+               rounded-lg hover:bg-white transition-colors duration-300"
+      >
+        Kontakta Oss
+      </a>
     </div>
   </section>
 </Layout>
+---

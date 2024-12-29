@@ -8,6 +8,7 @@ interface Props {
 }
 
 const { title, description = "Lasses Entreprenad - Expert på markarbete sedan 1990" } = Astro.props;
+const isHomePage = Astro.url.pathname === '/';
 ---
 
 <!DOCTYPE html>
@@ -29,7 +30,7 @@ const { title, description = "Lasses Entreprenad - Expert på markarbete sedan 1
     <meta property="og:locale" content="sv_SE" />
   </head>
   <body class="min-h-screen bg-gray-50 flex flex-col font-body">
-    <Header />
+    <Header transparent={isHomePage} />
     <main class="flex-grow">
       <slot />
     </main>
